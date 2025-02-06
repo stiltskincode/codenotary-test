@@ -9,9 +9,9 @@ export default function PostsPage() {
     useEffect(() => {
         const fetchPosts = async () => {
             try {
-                const response = await fetch("https://jsonplaceholder.typicode.com/posts");
+                const response = await fetch("http://127.0.0.1:9000/files");
                 const data = await response.json();
-                setPosts(data.slice(0, 10));
+                setPosts(data);
             } catch (error) {
                 console.error(error);
             } finally {
@@ -31,17 +31,15 @@ export default function PostsPage() {
                 <table style={{ width: "100%", borderCollapse: "collapse", marginTop: "20px" }}>
                     <thead>
                         <tr>
-                            <th style={{ border: "1px solid #ddd", padding: "8px", textAlign: "left" }}>ID</th>
-                            <th style={{ border: "1px solid #ddd", padding: "8px", textAlign: "left" }}>Title</th>
-                            <th style={{ border: "1px solid #ddd", padding: "8px", textAlign: "left" }}>Body</th>
+                            <th style={{ border: "1px solid #ddd", padding: "8px", textAlign: "left" }}>File Name</th>
+                            <th style={{ border: "1px solid #ddd", padding: "8px", textAlign: "left" }}>Metadata</th>
                         </tr>
                     </thead>
                     <tbody>
                         {posts.map((post) => (
-                            <tr key={post.id}>
-                                <td style={{ border: "1px solid #ddd", padding: "8px" }}>{post.id}</td>
-                                <td style={{ border: "1px solid #ddd", padding: "8px" }}>{post.title}</td>
-                                <td style={{ border: "1px solid #ddd", padding: "8px" }}>{post.body}</td>
+                            <tr key={post.fileName}>
+                                <td style={{ border: "1px solid #ddd", padding: "8px" }}>{post.fileName}</td>
+                                <td style={{ border: "1px solid #ddd", padding: "8px" }}>{post.metadata}</td>
                             </tr>
                         ))}
                     </tbody>
@@ -50,3 +48,5 @@ export default function PostsPage() {
         </div>
     );
 }
+
+
