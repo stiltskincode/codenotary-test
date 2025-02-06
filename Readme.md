@@ -45,3 +45,23 @@ npm run dev
 The frontend will start at `http://localhost:3000` by default.
 
 ---
+
+## **Uploading an Image via cURL**
+To upload an image to the backend, use the following cURL command:
+```sh
+curl --location 'http://127.0.0.1:8080/upload' \
+--form 'image=@"/Users/lukasz/Desktop/interview/Screenshot 2023-09-17 at 12.45.44.png"' \
+--form 'metadata="image test"'
+```
+This command sends an image file along with metadata to the backend.
+
+---
+
+## **Retrieving Uploaded Files via cURL**
+To retrieve a list of all uploaded files, use the following cURL command:
+```sh
+curl --location 'http://127.0.0.1:8080/files'
+```
+This command will return a JSON response with all uploaded files and their metadata.
+
+---
