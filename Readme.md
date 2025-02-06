@@ -65,3 +65,14 @@ curl --location 'http://127.0.0.1:8080/files'
 This command will return a JSON response with all uploaded files and their metadata.
 
 ---
+
+
+## **Viewing Uploaded Files in the Web Portal**
+To view the list of uploaded files in the frontend application, open the following URL in your browser:
+```
+http://127.0.0.1:3000/table
+```
+This page will display all uploaded files in a tabular format.
+
+
+
